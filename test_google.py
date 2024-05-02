@@ -1,14 +1,14 @@
 from selene import browser, be, have
 
 
-def test_search_selene(browser_management):
+def test_search_selene():
     browser.open('https://google.com')
     browser.element('[name=q]').should(be.blank).type('yashaka/selene').press_enter()
-    browser.element('[id=search]').should(
+    browser.element('#search').should(
         have.text('Selene - User-oriented Web UI browser tests in Python'))
 
 
-def test_search_non_existent_value(browser_management):
+def test_search_non_existent_value():
     browser.open('https://google.com')
 
     non_existent_value = 'sesleksleklsek'
